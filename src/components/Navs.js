@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { searchGifs } from "../api/apifunctions";
 
 export default function Navs({ setGifList, query, offset, setOffset }) {

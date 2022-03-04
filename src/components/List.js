@@ -1,14 +1,21 @@
+import { Card } from "./Card";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useState } from "react";
+
 export default function List({ gifList }) {
     console.log(gifList);
+    const [clicked, setClicked] = useState("copy to clipboard");
+
     return (
         <div className="grid container">
             {gifList.map((gif) => {
                 return (
-                    <div key={gif.id}>
-                        <h2> {gif.title}</h2>
-                        <img src={gif.images.downsized.url} alt={gif.title} />
-                        <p>Embed: {gif.embed_url}</p>
-                    </div>
+                    <Card
+                        slug={gif.slug}
+                        title={gif.title}
+                        images={gif.images}
+                        embedUrl={gif.embed_url}
+                    />
                 );
             })}
         </div>

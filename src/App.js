@@ -1,12 +1,17 @@
 import "./App.css";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Body from "./components/Body";
 
 function App() {
     return (
-        <div className="App">
-            <Body />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<Body />} />
+                    <Route path="/:filter" element={<Body />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 

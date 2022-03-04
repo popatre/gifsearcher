@@ -1,5 +1,4 @@
-import { searchGifs } from "../api/apifunctions";
-
+import { Link, useNavigate } from "react-router-dom";
 export default function SearchBar({
     setGifList,
     setTitle,
@@ -7,7 +6,10 @@ export default function SearchBar({
     query,
     setQuery,
     setOffset,
+    filter,
 }) {
+    let navigate = useNavigate();
+
     const handleChange = (e) => {
         const { value } = e.target;
         setEmpty(false);
@@ -16,22 +18,25 @@ export default function SearchBar({
         if (value === "") {
             setEmpty(true);
             setTitle("The Day");
+            navigate("/");
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        searchGifs(query).then((data) => {
-            setGifList(data.data);
-            setTitle(query);
-        });
+        // searchGifs(filter).then((data) => {
+        //     setGifList(data.data);
+        //     setTitle(query);
+        // });
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="search">Search for gifs: </label>
             <input name="search" value={query} onChange={handleChange}></input>
-            <button>Search</button>
+            <Link to={`/${query}`}>
+                <button>Search</button>
+            </Link>
         </form>
     );
 }
