@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
+
 export function Card({ slug, title, images, embedUrl }) {
     const [clicked, setClicked] = useState("Copy to clipboard");
     const [res, setRes] = useState(false);
@@ -11,6 +14,7 @@ export function Card({ slug, title, images, embedUrl }) {
     return (
         <div key={slug}>
             <h2> {title}</h2>
+
             <img src={images.downsized.url} alt={title} />
             {/* <p>Embed: {embedUrl}</p> */}
             <CopyToClipboard
@@ -21,7 +25,14 @@ export function Card({ slug, title, images, embedUrl }) {
                 text={embedUrl}
                 style={res ? { background: "lightGreen" } : null}
             >
-                <button>{clicked}</button>
+                <button>
+                    {clicked}{" "}
+                    {res ? (
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                    ) : (
+                        <FontAwesomeIcon icon={faCopy} />
+                    )}
+                </button>
             </CopyToClipboard>
         </div>
     );

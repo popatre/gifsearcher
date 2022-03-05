@@ -1,10 +1,6 @@
 import { Card } from "./Card";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useState } from "react";
-
 export default function List({ gifList }) {
     console.log(gifList);
-    const [clicked, setClicked] = useState("copy to clipboard");
 
     return (
         <div className="grid container">
