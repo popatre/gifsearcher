@@ -1,11 +1,9 @@
-import { randomGif } from "../api/apifunctions";
+import { Link } from "react-router-dom";
 
-export default function Random({ setRandomGif }) {
-    const handleClick = () => {
-        randomGif().then((res) => {
-            setRandomGif(res);
-        });
-    };
-
-    return <button onClick={handleClick}>Randomiser</button>;
+export default function Random() {
+    return (
+        <Link to="/random">
+            <button>Randomiser</button>
+        </Link>
+    );
 }

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import List from "./List";
 import SearchBar from "./Searchbar";
 import Random from "./RandomButton";
-import SingleGif from "./Singlegif";
+
 import Footer from "./Footer";
 import Navs from "./Navs";
 
@@ -12,15 +12,17 @@ export default function Body() {
     const [gifList, setGifList] = useState([]);
     const [title, setTitle] = useState("The Day");
     const [empty, setEmpty] = useState(false);
-    const [randomGif, setRandomGif] = useState([]);
+
     const [query, setQuery] = useState("");
     const [offset, setOffset] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     const { filter } = useParams();
 
     useEffect(() => {
-        console.log(empty);
+        setIsLoading(true);
         getTrending().then((data) => {
+            setIsLoading(false);
             setGifList(data.data);
         });
     }, [empty]);
@@ -34,12 +36,10 @@ export default function Body() {
         }
     }, [filter]);
 
-    if (randomGif.length !== 0)
-        return <SingleGif randomGif={randomGif} setRandomGif={setRandomGif} />;
     return (
         <div>
             <h1>Gifs of {title}</h1>
-            <Random setRandomGif={setRandomGif} />
+            <Random />
             <SearchBar
                 setGifList={setGifList}
                 setTitle={setTitle}
@@ -48,7 +48,7 @@ export default function Body() {
                 setQuery={setQuery}
                 setOffset={setOffset}
             />
-            <List gifList={gifList} />
+            <List gifList={gifList} isLoading={isLoading} />
             {filter && (
                 <Navs
                     setGifList={setGifList}

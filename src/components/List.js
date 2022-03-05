@@ -1,5 +1,5 @@
 import { Card } from "./Card";
-export default function List({ gifList }) {
+export default function List({ gifList, isLoading }) {
     console.log(gifList);
 
     return (
