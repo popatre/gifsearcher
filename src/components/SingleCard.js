@@ -10,7 +10,6 @@ export function SingleCard({
     title,
     images,
 }) {
-    console.log(embedUrl);
     return (
         <div>
             <h2>{title}</h2>

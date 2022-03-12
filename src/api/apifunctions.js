@@ -1,13 +1,27 @@
-export const getTrending = () => {
-    return fetch(
-        "https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW"
-    )
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
+import axios from "axios";
+
+export const getTrending = (source) => {
+    return axios
+        .get(
+            "https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW",
+            { cancelToken: source.token }
+        )
+        .then(({ data }) => {
             return data;
         });
+    // .catch((err) => {
+    //     console.log("in heree", err);
+    // });
+
+    // return fetch(
+    //     "https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW"
+    // )
+    //     .then((response) => {
+    //         return response.json();
+    //     })
+    //     .then((data) => {
+    //         return data;
+    //     });
 };
 
 export const searchGifs = (query, offset) => {

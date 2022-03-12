@@ -7,6 +7,7 @@ export default function List({ gifList, isLoading }) {
             {gifList.map((gif) => {
                 return (
                     <Card
+                        key={gif.id}
                         slug={gif.slug}
                         title={gif.title}
                         images={gif.images}
