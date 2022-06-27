@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "./Card/Card";
 export default function List({ gifList, isLoading }) {
     console.log(gifList);
 

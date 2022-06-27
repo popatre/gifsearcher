@@ -49,7 +49,7 @@ export default function Body() {
 
     return (
         <div>
-            <h1>Gifs of {title}</h1>
+            <h1 className="text-3xl font-bold underline">Gifs of {title}</h1>
             <Random />
             <SearchBar
                 setGifList={setGifList}
