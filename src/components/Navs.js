@@ -21,8 +21,18 @@ export default function Navs({ setGifList, query, offset, setOffset }) {
 
     return (
         <div>
-            <button onClick={handlePrev}>Prev</button>
-            <button onClick={handleClick}>Next</button>
+            <button
+                className="border-2 border-red-300 py-1 px-2 rounded mx-2 hover:bg-slate-200"
+                onClick={handlePrev}
+            >
+                Prev
+            </button>
+            <button
+                className="border-2 border-red-300 py-1 px-2 rounded mx-2 my-5 hover:bg-slate-200"
+                onClick={handleClick}
+            >
+                Next
+            </button>
         </div>
     );
 }
