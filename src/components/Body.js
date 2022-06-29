@@ -7,7 +7,6 @@ import Random from "./RandomButton";
 
 import Footer from "./Footer";
 import Navs from "./Navs";
-import axios from "axios";
 
 export default function Body() {
     const [gifList, setGifList] = useState([]);
