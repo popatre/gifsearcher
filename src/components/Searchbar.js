@@ -32,7 +32,7 @@ export default function SearchBar({
 
     return (
         <form
-            className=" flex flex-col p-7 border-solid border-red-500 border-2 mb-8 max-w-md mx-auto rounded-lg"
+            className=" flex flex-col p-7 border-solid border-slate-700 border-2 mb-8 max-w-md mx-auto rounded-lg bg-white shadow-xl"
             onSubmit={handleSubmit}
         >
             <span className="mb-4">
@@ -45,7 +45,7 @@ export default function SearchBar({
                 ></input>
             </span>
             <Link to={`/${query}`}>
-                <button className="py-2 px-4 bg-slate-200 border-solid border-2 border-red-600 rounded-lg hover:bg-slate-300">
+                <button className="py-2 px-4 bg-slate-200 border-solid border-2 border-slate-600 rounded-lg hover:bg-slate-300">
                     Search
                 </button>
             </Link>

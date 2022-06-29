@@ -5,7 +5,6 @@ import List from "./List";
 import SearchBar from "./Searchbar";
 import Random from "./RandomButton";
 
-import Footer from "./Footer";
 import Navs from "./Navs";
 
 export default function Body() {
@@ -69,7 +68,6 @@ export default function Body() {
                     setOffset={setOffset}
                 />
             )}
-            <Footer />
         </div>
     );
 }

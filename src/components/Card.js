@@ -15,7 +15,7 @@ export function Card({ slug, title, images, embedUrl }) {
     return (
         <div
             key={slug}
-            className="relative border-solid border-red-400 border-2 rounded-xl p-4 pb-12 shadow-lg"
+            className="relative border-solid border-slate-500 border-2 rounded-xl p-4 pb-12 shadow-lg bg-white"
         >
             <h2> {title}</h2>
 
@@ -26,7 +26,7 @@ export function Card({ slug, title, images, embedUrl }) {
             />
 
             <CopyToClipboard
-                className="absolute bottom-5 right-1/3 sm:right-1/4 border-2 p-1 border-red-500 rounded-xl hover:bg-slate-200"
+                className="absolute bottom-5 right-1/3 sm:right-1/4 border-2 p-1 border-slate-500 rounded-xl hover:bg-slate-200"
                 onCopy={handleCopy}
                 options={{
                     message: "Whoa!",
