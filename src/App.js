@@ -6,7 +6,7 @@ import RandomPage from "./components/RandomPage";
 function App() {
     return (
         <BrowserRouter>
-            <div className="App">
+            <div className="text-center">
                 <Routes>
                     <Route path="/" element={<Body />} />
                     <Route path="/:filter" element={<Body />} />
