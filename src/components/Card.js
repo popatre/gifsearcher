@@ -32,7 +32,7 @@ export function Card({ slug, title, images, embedUrl }) {
                     message: "Whoa!",
                 }}
                 text={embedUrl}
-                style={res ? { background: "lightGreen" } : null}
+                style={res ? { background: "#22c55e" } : null}
             >
                 <button>
                     {clicked}{" "}

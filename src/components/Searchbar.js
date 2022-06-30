@@ -45,7 +45,7 @@ export default function SearchBar({
                 ></input>
             </span>
             <Link to={`/${query}`}>
-                <button className="py-2 px-4 bg-slate-200 border-solid border-2 border-slate-600 rounded-lg hover:bg-slate-300">
+                <button className="py-2 px-4  bg-slate-200 border-solid border-2 border-slate-600 rounded-lg hover:bg-slate-300">
                     Search
                 </button>
             </Link>

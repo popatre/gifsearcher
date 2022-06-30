@@ -20,15 +20,15 @@ export default function Navs({ setGifList, query, offset, setOffset }) {
     };
 
     return (
-        <div>
+        <div className="mt-6">
             <button
-                className="border-2 border-red-300 py-1 px-2 rounded mx-2 hover:bg-slate-200"
+                className="bg-white shadow-xl border-solid border-2 border-slate-600 rounded-lg py-1 px-2 mx-2 hover:bg-slate-200"
                 onClick={handlePrev}
             >
                 Prev
             </button>
             <button
-                className="border-2 border-red-300 py-1 px-2 rounded mx-2 my-5 hover:bg-slate-200"
+                className=" bg-white shadow-xl border-solid border-2 border-slate-600 rounded-lg py-1 px-2 mx-2 my-5 hover:bg-slate-200"
                 onClick={handleClick}
             >
                 Next
