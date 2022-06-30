@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 function App() {
     return (
         <BrowserRouter>
-            <div className="text-center bg-main-bg-pattern bg-sky-400 min-h-[calc(100vh-5rem)]">
+            <div className="text-center min-h-[calc(100vh-10rem)]">
                 <Routes>
                     <Route path="/" element={<Body />} />
                     <Route path="/:filter" element={<Body />} />

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-main-bg-pattern bg-sky-400;
+    }
+    /* h1 {
+      @apply text-2xl;
+    }
+    h2 {
+      @apply text-xl;
+    } */
+    /* ... */
+}
