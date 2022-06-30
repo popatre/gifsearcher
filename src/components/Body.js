@@ -23,31 +23,39 @@ export default function Body() {
 
         setIsLoading(true);
 
-        getTrending().then((data) => {
-            if (mounted) {
-                console.log("response received");
-                setIsLoading(false);
+        if (filter) {
+            searchGifs(filter).then((data) => {
                 setGifList(data.data);
-            }
-        });
+                setTitle(filter);
+            });
+        } else {
+            getTrending().then((data) => {
+                if (mounted) {
+                    setQuery("");
+                    setIsLoading(false);
+                    setGifList(data.data);
+                    setTitle("the Day");
+                }
+            });
+        }
 
         return () => {
             mounted = false;
         };
-    }, [empty]);
+    }, [empty, filter]);
 
-    useEffect(() => {
-        if (filter) {
-            searchGifs(filter).then((data) => {
-                setGifList(data.data);
-                setTitle(query);
-            });
-        }
-    }, [filter]);
+    // useEffect(() => {
+    //     if (filter) {
+    //         searchGifs(filter).then((data) => {
+    //             setGifList(data.data);
+    //             setTitle(query);
+    //         });
+    //     }
+    // }, [filter]);
 
     return (
         <div>
-            <h1 className="text-3xl font-bold underline py-7 ">
+            <h1 className="text-5xl font-bold underline py-7 text-white drop-shadow-xl mb-6">
                 Gifs of {title}
             </h1>
             <Random />

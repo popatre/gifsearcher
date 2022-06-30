@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
     const scrollTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -11,6 +13,11 @@ export default function Footer() {
                     className="underline cursor-pointer text-white"
                 >
                     Back to the top
+                </p>
+                <p className="underline cursor-pointer text-white">
+                    <Link onClick={scrollTop} to="/">
+                        Home
+                    </Link>
                 </p>
                 <div className="giphy">
                     <p className="text-sm">Powered by </p>

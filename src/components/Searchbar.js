@@ -17,7 +17,7 @@ export default function SearchBar({
         setOffset(0);
         if (value === "") {
             setEmpty(true);
-            setTitle("The Day");
+            setTitle("the Day");
             navigate("/");
         }
     };
