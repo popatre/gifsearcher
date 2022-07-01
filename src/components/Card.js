@@ -1,10 +1,21 @@
-import React from "react";
-import { useState } from "react";
+import React, { useRef, useCallback, useState } from "react";
+
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
 
-export function Card({ slug, title, images, embedUrl }) {
+export function Card({
+    slug,
+    title,
+    images,
+    embedUrl,
+    lastGif,
+    hasMore,
+    setTrendingOffSet,
+    index,
+    length,
+    isLoading,
+}) {
     const [clicked, setClicked] = useState("Copy to clipboard");
     const [res, setRes] = useState(false);
 
@@ -12,8 +23,28 @@ export function Card({ slug, title, images, embedUrl }) {
         setClicked("Copied Successfully!! ");
         setRes(result);
     };
+
+    const observer = useRef();
+    const lastGifLoaded = useCallback(
+        (node) => {
+            if (isLoading) return;
+            if (observer.current) {
+                observer.current.disconnect();
+            }
+
+            observer.current = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && hasMore) {
+                    setTrendingOffSet((prevOffset) => prevOffset + 11);
+                }
+            });
+            if (node) observer.current.observe(node);
+        },
+        [isLoading, hasMore]
+    );
+
     return (
         <div
+            ref={length === index ? lastGifLoaded : null}
             key={slug}
             className="relative border-solid border-slate-500 border-2 rounded-xl p-4 pb-12 shadow-lg bg-white"
         >

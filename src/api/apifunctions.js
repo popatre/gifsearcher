@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getTrending = () => {
+export const getTrending = (offset) => {
     return axios
         .get(
-            "https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW"
+            `https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW&offset=${offset}&limit=10`
         )
         .then(({ data }) => {
             return data;

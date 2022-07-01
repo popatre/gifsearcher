@@ -11,11 +11,11 @@ export default function Body() {
     const [gifList, setGifList] = useState([]);
     const [title, setTitle] = useState("The Day");
     const [empty, setEmpty] = useState(false);
-
     const [query, setQuery] = useState("");
     const [offset, setOffset] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
-
+    const [hasMore, setHasMore] = useState(false);
+    const [trendingOffSet, setTrendingOffSet] = useState(0);
     const { filter } = useParams();
 
     useEffect(() => {
@@ -29,12 +29,16 @@ export default function Body() {
                 setTitle(filter);
             });
         } else {
-            getTrending().then((data) => {
+            getTrending(trendingOffSet).then((data) => {
                 if (mounted) {
                     setQuery("");
                     setIsLoading(false);
-                    setGifList(data.data);
+                    setGifList((prevList) => {
+                        return [...new Set([...prevList, ...data.data])];
+                        //return prevList.concat(data.data);
+                    });
                     setTitle("the Day");
+                    setHasMore(data.data.length > 0);
                 }
             });
         }
@@ -42,16 +46,9 @@ export default function Body() {
         return () => {
             mounted = false;
         };
-    }, [empty, filter]);
+    }, [empty, filter, trendingOffSet]);
 
-    // useEffect(() => {
-    //     if (filter) {
-    //         searchGifs(filter).then((data) => {
-    //             setGifList(data.data);
-    //             setTitle(query);
-    //         });
-    //     }
-    // }, [filter]);
+    console.log(gifList, "888888");
 
     return (
         <div>
@@ -67,7 +64,12 @@ export default function Body() {
                 setQuery={setQuery}
                 setOffset={setOffset}
             />
-            <List gifList={gifList} isLoading={isLoading} />
+            <List
+                gifList={gifList}
+                isLoading={isLoading}
+                hasMore={hasMore}
+                setTrendingOffSet={setTrendingOffSet}
+            />
             {filter && (
                 <Navs
                     setGifList={setGifList}
