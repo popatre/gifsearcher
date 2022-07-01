@@ -24,9 +24,11 @@ export default function Body() {
         setIsLoading(true);
 
         if (filter) {
-            searchGifs(filter).then((data) => {
+            searchGifs(filter, offset).then((data) => {
+                console.log(data.data, "******");
                 setGifList(data.data);
                 setTitle(filter);
+                setIsLoading(false);
             });
         } else {
             getTrending(trendingOffSet).then((data) => {
@@ -46,7 +48,7 @@ export default function Body() {
         return () => {
             mounted = false;
         };
-    }, [empty, filter, trendingOffSet]);
+    }, [empty, filter, trendingOffSet, offset]);
 
     console.log(gifList, "888888");
 

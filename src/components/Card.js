@@ -1,5 +1,5 @@
 import React, { useRef, useCallback, useState } from "react";
-
+import { useParams } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +18,7 @@ export function Card({
 }) {
     const [clicked, setClicked] = useState("Copy to clipboard");
     const [res, setRes] = useState(false);
+    const { filter } = useParams();
 
     const handleCopy = (text, result) => {
         setClicked("Copied Successfully!! ");
@@ -33,7 +34,7 @@ export function Card({
             }
 
             observer.current = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && hasMore) {
+                if (entries[0].isIntersecting && hasMore && !filter) {
                     setTrendingOffSet((prevOffset) => prevOffset + 11);
                 }
             });

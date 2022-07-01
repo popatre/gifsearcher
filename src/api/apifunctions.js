@@ -25,7 +25,7 @@ export const getTrending = (offset) => {
 
 export const searchGifs = (query, offset) => {
     return fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW&q=${query}&offset=${offset}&limit=20`
+        `https://api.giphy.com/v1/gifs/search?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW&q=${query}&offset=${offset}&limit=21`
     )
         .then((response) => {
             return response.json();

@@ -1,12 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 export default function SearchBar({
-    setGifList,
     setTitle,
     setEmpty,
     query,
     setQuery,
     setOffset,
-    filter,
 }) {
     let navigate = useNavigate();
 
