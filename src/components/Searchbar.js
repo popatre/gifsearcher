@@ -5,23 +5,27 @@ export default function SearchBar({
     query,
     setQuery,
     setOffset,
+    setTrendingOffSet,
 }) {
     let navigate = useNavigate();
 
     const handleChange = (e) => {
         const { value } = e.target;
-        setEmpty(false);
+
         setQuery(value);
-        setOffset(0);
+
         if (value === "") {
             setEmpty(true);
-            setTitle("the Day");
+            setTrendingOffSet(0);
+            //setTitle("the Day");
             navigate("/");
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setOffset(0);
+        setEmpty(false);
         // searchGifs(filter).then((data) => {
         //     setGifList(data.data);
         //     setTitle(query);

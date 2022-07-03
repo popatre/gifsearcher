@@ -25,7 +25,6 @@ export default function Body() {
 
         if (filter) {
             searchGifs(filter, offset).then((data) => {
-                console.log(data.data, "******");
                 setGifList(data.data);
                 setTitle(filter);
                 setIsLoading(false);
@@ -33,14 +32,20 @@ export default function Body() {
         } else {
             getTrending(trendingOffSet).then((data) => {
                 if (mounted) {
-                    setQuery("");
-                    setIsLoading(false);
-                    setGifList((prevList) => {
-                        return [...new Set([...prevList, ...data.data])];
-                        //return prevList.concat(data.data);
-                    });
-                    setTitle("the Day");
-                    setHasMore(data.data.length > 0);
+                    if (trendingOffSet === 0) {
+                        setIsLoading(false);
+                        setGifList(data.data);
+                        setTitle("the Day");
+                        setHasMore(data.data.length > 0);
+                    } else {
+                        setIsLoading(false);
+
+                        setGifList((prevList) => {
+                            return [...new Set([...prevList, ...data.data])];
+                        });
+
+                        setHasMore(data.data.length > 0);
+                    }
                 }
             });
         }
@@ -65,6 +70,7 @@ export default function Body() {
                 query={query}
                 setQuery={setQuery}
                 setOffset={setOffset}
+                setTrendingOffSet={setTrendingOffSet}
             />
             <List
                 gifList={gifList}

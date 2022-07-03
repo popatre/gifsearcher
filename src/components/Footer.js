@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({ setEmpty }) {
     const scrollTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        setEmpty((curr) => !curr);
     };
 
     return (
@@ -23,7 +24,7 @@ export default function Footer() {
                     <p className="text-sm">Powered by </p>
                     <img
                         src="/images/GIPHY Logo 209px.png"
-                        alt="image"
+                        alt="giphy logo"
                         className="w-16"
                     />
                 </div>
