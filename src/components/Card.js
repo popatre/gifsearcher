@@ -49,7 +49,7 @@ export function Card({
             key={slug}
             className="relative border-solid border-slate-500 border-2 rounded-xl p-4 pb-12 shadow-lg bg-white"
         >
-            <h2> {title}</h2>
+            <h2 className="text-lg py-2 font-medium"> {title}</h2>
 
             <img
                 className="mx-auto py-3 mb-4"

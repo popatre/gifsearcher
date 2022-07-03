@@ -11,10 +11,11 @@ export function SingleCard({
     images,
 }) {
     return (
-        <div>
-            <h2>{title}</h2>
-            <img src={images.url} alt={title} />
+        <div className=" border-solid border-slate-500 border-4 max-w-3xl w-11/12 mx-auto md:w-4/5 py-12 rounded-xl bg-white">
+            <h2 className="text-lg font-bold">{title}</h2>
+            <img src={images.url} alt={title} className="mx-auto px-2 py-7" />
             <CopyToClipboard
+                className="border-2 p-1 border-slate-500 rounded-xl hover:bg-slate-200"
                 onCopy={handleCopy}
                 options={{
                     message: "Whoa!",
@@ -23,7 +24,7 @@ export function SingleCard({
                 style={
                     res
                         ? {
-                              background: "lightGreen",
+                              background: "#22c55e",
                           }
                         : null
                 }

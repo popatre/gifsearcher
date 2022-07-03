@@ -25,8 +25,13 @@ export default function RandomPage() {
     };
     if (isLoading) return <h1>loading...</h1>;
     return (
-        <>
-            <Link to="/">Back to trending</Link>
+        <section className="min-h-[calc(100vh-10rem)] flex justify-center flex-col">
+            <Link
+                className="mb-8 bg-white shadow-xl border-solid border-2 border-slate-600 rounded-lg py-1 px-2 w-40 mx-auto hover:bg-slate-200 shadow-xl font-semibold"
+                to="/"
+            >
+                Back to trending
+            </Link>
             <SingleCard
                 embedUrl={random.embed_url}
                 title={random.title}
@@ -35,6 +40,6 @@ export default function RandomPage() {
                 res={res}
                 clicked={clicked}
             />
-        </>
+        </section>
     );
 }
