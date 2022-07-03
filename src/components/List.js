@@ -1,4 +1,5 @@
 import { Card } from "./Card";
+import Loading from "./Loading";
 
 export default function List({
     gifList,
@@ -27,7 +28,7 @@ export default function List({
                 );
             })}
 
-            <div>{isLoading && "Loading..."}</div>
+            <div className="mx-auto">{isLoading && <Loading />}</div>
         </div>
     );
 }

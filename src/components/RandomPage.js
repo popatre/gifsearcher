@@ -2,6 +2,7 @@ import { SingleCard } from "./SingleCard";
 import { randomGif } from "../api/apifunctions";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function RandomPage() {
     const [random, setRandom] = useState({});
@@ -23,7 +24,14 @@ export default function RandomPage() {
         setClicked("Copied Successfully!!");
         setRes(result);
     };
-    if (isLoading) return <h1>loading...</h1>;
+    if (isLoading)
+        return (
+            <div className="flex justify-center items-center min-h-[calc(100vh-10rem)]">
+                <span className="">
+                    <Loading />
+                </span>
+            </div>
+        );
     return (
         <section className="min-h-[calc(100vh-10rem)] flex justify-center flex-col">
             <Link

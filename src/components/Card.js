@@ -9,7 +9,7 @@ export function Card({
     title,
     images,
     embedUrl,
-    lastGif,
+
     hasMore,
     setTrendingOffSet,
     index,
