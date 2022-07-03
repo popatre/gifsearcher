@@ -33,7 +33,7 @@ export default function RandomPage() {
                 Back to trending
             </Link>
             <SingleCard
-                embedUrl={random.embed_url}
+                embedUrl={random.images?.original.url}
                 title={random.title}
                 images={images}
                 handleCopy={handleCopy}

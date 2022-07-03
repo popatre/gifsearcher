@@ -17,7 +17,7 @@ export default function List({
                         slug={gif.slug}
                         title={gif.title}
                         images={gif.images}
-                        embedUrl={gif.embed_url}
+                        embedUrl={gif.images?.original.url}
                         hasMore={hasMore}
                         setTrendingOffSet={setTrendingOffSet}
                         length={gifList.length}

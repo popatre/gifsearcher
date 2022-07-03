@@ -55,8 +55,6 @@ export default function Body() {
         };
     }, [empty, filter, trendingOffSet, offset]);
 
-    console.log(gifList, "888888");
-
     return (
         <div>
             <h1 className="text-5xl font-bold underline py-7 text-white drop-shadow-xl mb-6">
