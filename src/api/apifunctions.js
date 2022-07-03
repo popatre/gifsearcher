@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY || process.env.API_KEY;
 
 export const getTrending = (offset) => {
     return axios
