@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 export const getTrending = (offset) => {
     return axios
         .get(
-            `https://api.giphy.com/v1/gifs/trending?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW&offset=${offset}&limit=10`
+            `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&offset=${offset}&limit=10`
         )
         .then(({ data }) => {
             return data;
@@ -25,7 +27,7 @@ export const getTrending = (offset) => {
 
 export const searchGifs = (query, offset) => {
     return fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW&q=${query}&offset=${offset}&limit=21`
+        `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&offset=${offset}&limit=21`
     )
         .then((response) => {
             return response.json();
@@ -36,9 +38,7 @@ export const searchGifs = (query, offset) => {
 };
 
 export const randomGif = () => {
-    return fetch(
-        `https://api.giphy.com/v1/gifs/random?api_key=sic6ryZpTlLo4nDeJmbO3HS9VY3W8TZW`
-    )
+    return fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
         .then((response) => {
             return response.json();
         })
