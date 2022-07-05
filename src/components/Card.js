@@ -45,6 +45,7 @@ export function Card({
 
     return (
         <div
+            data-cy="gif-card"
             ref={length === index ? lastGifLoaded : null}
             key={slug}
             className="relative border-solid border-slate-500 border-2 rounded-xl p-4 pb-12 shadow-lg bg-white"
