@@ -57,7 +57,10 @@ export default function Body() {
 
     return (
         <div>
-            <h1 className="text-5xl font-bold underline py-7 text-white drop-shadow-xl mb-6">
+            <h1
+                data-cy="title"
+                className="text-5xl font-bold underline py-7 text-white drop-shadow-xl mb-6"
+            >
                 Gifs of {title}
             </h1>
             <Random />
