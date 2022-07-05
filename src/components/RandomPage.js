@@ -35,6 +35,7 @@ export default function RandomPage() {
     return (
         <section className="min-h-[calc(100vh-10rem)] flex justify-center flex-col">
             <Link
+                data-cy="back-home"
                 className="mb-8 bg-white shadow-xl border-solid border-2 border-slate-600 rounded-lg py-1 px-2 w-40 mx-auto hover:bg-slate-200 shadow-xl font-semibold"
                 to="/"
             >
