@@ -20,4 +20,11 @@ describe("Main list/ body component", () => {
             .find("[data-cy=gif-card]")
             .should("have.length", 20);
     });
+    it("renders card with clickable copy button ", () => {
+        cy.get("@Home");
+        cy.get("[data-cy=copy-btn]")
+            .first()
+            .click()
+            .contains("Copied Successfully!!");
+    });
 });

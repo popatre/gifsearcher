@@ -59,11 +59,9 @@ export function Card({
             />
 
             <CopyToClipboard
+                data-cy="copy-btn"
                 className="absolute bottom-5 right-1/3 sm:right-1/4 border-2 p-1 border-slate-500 rounded-xl hover:bg-slate-200"
                 onCopy={handleCopy}
-                options={{
-                    message: "Whoa!",
-                }}
                 text={embedUrl}
                 style={res ? { background: "#22c55e" } : null}
             >
