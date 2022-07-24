@@ -40,6 +40,7 @@ export default function SearchBar({
             <span className="mb-4">
                 <label htmlFor="search">Search for gifs: </label>
                 <input
+                    data-cy="search-bar"
                     className="border-solid border-black border-2 mx-1"
                     name="search"
                     value={query}
@@ -47,7 +48,10 @@ export default function SearchBar({
                 ></input>
             </span>
             <Link to={`/${query}`}>
-                <button className="py-2 px-4  bg-slate-200 border-solid border-2 border-slate-600 rounded-lg hover:bg-slate-300">
+                <button
+                    data-cy="search-btn"
+                    className="py-2 px-4  bg-slate-200 border-solid border-2 border-slate-600 rounded-lg hover:bg-slate-300"
+                >
                     Search
                 </button>
             </Link>
